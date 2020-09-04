@@ -3,6 +3,9 @@
 
 ## CRF
 这个是参考allennlp写的，添加了一些注释
+可以参考介绍: https://easyai.tech/ai-definition/ner/
+项目：https://github.com/guillaumegenthial/sequence_tagging/blob/master/build_data.py
+项目参考：https://github.com/Determined22/zh-NER-TF
 
 下面我们从以下几方面讲解CRF
 1. 生成模型 vs 判别模型
