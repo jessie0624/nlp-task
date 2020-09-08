@@ -9,7 +9,7 @@ from utils import *
 - rnn 输入shape是 SequenceLen, BatchSize, InputSize
 """
 
-class CRF(nn.Module):
+class ConditionalRandomField(nn.Module):
     def __init__(self, 
                 num_tags: int, 
                 constraints: List[Tuple[int, int]] = None,
