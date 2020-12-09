@@ -1,0 +1,1 @@
+from src.embedding.embedding import Embedding, load_from_file
