@@ -41,6 +41,7 @@ trainset = mz.dataloader.Dataset(
     batch_size=64,
     num_dup=1,
     num_neg=4,
+    resample=True,
     callbacks=[triletter_callback]
 )
 
@@ -55,7 +56,6 @@ padding_callback = mz.models.DSSM.get_default_padding_callback()
 trainloader = mz.dataloader.DataLoader(
     dataset=trainset,
     stage='train',
-    resample=True,
     callback=padding_callback
 )
 testloader = mz.dataloader.DataLoader(
