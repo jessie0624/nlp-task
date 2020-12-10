@@ -4,7 +4,7 @@ import pandas as pd
 import matchzoo as mz 
 print('matchzoo version', mz.__version__)
 
-ranking_task = mz.tasks.Ranking(losses=mz.losses.RankingHingeLoss())
+ranking_task = mz.tasks.Ranking(losses=mz.losses.RankHingeLoss())
 ranking_task.metrics = [
     mz.metrics.NormalizedDiscountedCumulativeGain(k=3),
     mz.metrics.NormalizedDiscountedCumulativeGain(k=5),
