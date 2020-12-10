@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 
-import snlp.tools.constants as Constants
+import src.tools.constants as Constants
 
 def get_non_pad_mask(seq):
     """

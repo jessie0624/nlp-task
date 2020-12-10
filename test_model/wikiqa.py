@@ -18,6 +18,7 @@ dev_pack_raw = mz.datasets.wiki_qa.load_data('dev', task=ranking_task, filtered=
 test_pack_raw = mz.datasets.wiki_qa.load_data('test', task=ranking_task, filtered=True)
 print('data loaded as `train_pack_raw` `dev_pack_raw` `test_pack_raw`')
 
+train_pack_raw.to_csv('train_pack_raw.csv')
 
 ranking_task = mz.tasks.Ranking(losses=mz.losses.RankCrossEntropyLoss(num_neg=4))
 ranking_task.metrics = [
@@ -70,7 +71,9 @@ model.params['vocab_size'] = preprocessor.context['ngram_vocab_size']
 model.params['mlp_num_layers'] = 3
 model.params['mlp_num_units'] = 300 
 model.params['mlp_num_fan_out'] = 128 
-model.params['mlp_activation_func'] = 'relu'
+# model.params['mlp_activation_func'] = 'relu'
+model.params['mlp_activation_func'] = 'tanh'
+model.params['out_activation_func'] = 'sigmoid'
 model.build()
 
 print(model, sum(p.numel() for p in model.parameters() if p.requires_grad))
