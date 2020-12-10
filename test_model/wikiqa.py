@@ -38,6 +38,7 @@ triletter_callback = mz.dataloader.callbacks.Ngram(preprocessor, mode='aggregate
 trainset = mz.dataloader.Dataset(
     data_pack=train_pack_processed,
     mode='pair',
+    batch_size=64,
     num_dup=1,
     num_neg=4,
     callbacks=[triletter_callback]
@@ -45,6 +46,7 @@ trainset = mz.dataloader.Dataset(
 
 testset = mz.dataloader.Dataset(
     data_pack = test_pack_processed,
+    batch_size=64,
     callbacks=[triletter_callback]
 )
 
@@ -52,14 +54,12 @@ padding_callback = mz.models.DSSM.get_default_padding_callback()
 
 trainloader = mz.dataloader.DataLoader(
     dataset=trainset,
-    batch_szie=64,
     stage='train',
     resample=True,
     callback=padding_callback
 )
 testloader = mz.dataloader.DataLoader(
     dataset=testset,
-    batch_size=64,
     stage='dev',
     callback=padding_callback
 )
